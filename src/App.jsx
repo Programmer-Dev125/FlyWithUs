@@ -34,7 +34,7 @@ export default function App(){
             <Route path="/flights" element={<Flight />}  /> 
             <Route path="/admin" element={<Login />} />
             <Route path="/admin/dashboard" element={<Dashboard />}>
-                <Route index element={<DashboardHome />} />
+                <Route index element={<Dashboard />} />
                 <Route path="/visitors" element={<Dashboard />} />
                 <Route path="/bookings" element={<Dashboard />} />
                 <Route path="/hotels" element={<Dashboard />} />
