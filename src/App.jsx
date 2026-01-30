@@ -33,18 +33,7 @@ export default function App(){
             <Route path="/policy" element={<Policy />} />  
             <Route path="/flights" element={<Flight />}  /> 
             <Route path="/admin" element={<Login />} />
-            <Route path="/admin/dashboard" element={<Dashboard />}>
-                <Route index element={<Dashboard />} />
-                <Route path="/visitors" element={<Dashboard />} />
-                <Route path="/bookings" element={<Dashboard />} />
-                <Route path="/hotels" element={<Dashboard />} />
-                <Route path="/messages" element={<Dashboard />} />
-                <Route path="/pending-queries" element={<Dashboard />} />
-                <Route path="/analytics" element={<Dashboard />} />
-                <Route path="/revenue" element={<Dashboard />} />
-                <Route path="/settings" element={<Dashboard />} />
-                <Route path="*" element={<Error />} />
-            </Route>
+            <Route path="/admin/dashboard/*" element={<Dashboard />} />  
             {/* <Route path="/admin/dashboard/visitors" element={<Dashboard />} />
             <Route path="/admin/dashboard/bookings" element={<Dashboard />} />
             <Route path="/admin/dashboard/hotels" element={<Dashboard />} />

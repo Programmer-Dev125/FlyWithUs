@@ -7,6 +7,7 @@ import { SideBarTab } from "@custom";
 import { useLocation, useNavigate } from "react-router";
 import { TbSettingsFilled } from "react-icons/tb";
 import { IoHourglassOutline } from "react-icons/io5";
+import Error from "@pages/404/Error.jsx"
 
 import { Title } from "@custom";
 
@@ -104,7 +105,21 @@ export default function DashBoard(){
                     <Title sub="Welcome to Travel Website" main="Admin Dashboard" size="text-3xl" />
                 </div>
                 <section className="mt-10">
-                    {pathname == "/admin/dashboard" && <DashboardContent />}
+                    <Routes>
+                        <Route index element={<DashboardContent />} />
+                        <Route path="visitors" element={<AdminVisitors />} />
+                        <Route path="bookings" element={<AdminBookings />} />
+                        <Route path="hotels" element={<AdminHotels />} />
+                        <Route path="messages" element={<AdminMessages />} />
+                        <Route path="pending-queries" element={<AdminPendingQueries />} />
+                        <Route path="analytics" element={<AdminAnalytics />} />
+                        <Route path="revenue" element={<AdminRevenue />} />
+                        <Route path="settings" element={<AdminSettings />} />
+
+                        {/* Catch invalid dashboard routes */}
+                        <Route path="*" element={<Error />} />
+                    </Routes>
+                    {/* {pathname == "/admin/dashboard" && <DashboardContent />}
                     {pathname == "/admin/dashboard/visitors" && <AdminVisitors />}
                     {pathname == "/admin/dashboard/bookings" && <AdminBookings />}  
                     {pathname == "/admin/dashboard/hotels" && <AdminHotels />} 
@@ -112,7 +127,7 @@ export default function DashBoard(){
                     {pathname == "/admin/dashboard/pending-queries" && <AdminPendingQueries />}
                     {pathname == "/admin/dashboard/analytics" && <AdminAnalytics />}
                     {pathname == "/admin/dashboard/revenue" && <AdminRevenue />}
-                    {pathname == "/admin/dashboard/settings" && <AdminSettings />}
+                    {pathname == "/admin/dashboard/settings" && <AdminSettings />} */}
                 </section>  
             </section>
         </section>
