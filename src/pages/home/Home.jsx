@@ -32,7 +32,7 @@ export default function Home(){
             <section className="flex flex-col gap-3 w-[100%] md:w-[45%]">
                 <h2 className="text-xl text-[var(--focus)]">Best Destinations around the world</h2>
                 <TextGenerator finalString="Travel, enjoy, live a new and full life." styles="text-6xl leading-normal text-[var(--primary)] relative" type="text" />
-                <p className="text-lg text-base/7 text-[var(--primary)]">Ready for your next adventure? Discover amazing destinations and exclusive deals tailored just for you!</p>
+                <p className="text-lg text-[var(--primary)]">Ready for your next adventure? Discover amazing destinations and exclusive deals tailored just for you!</p>
                 <Link to="/flights">
                   <Button>
                     Find Out More

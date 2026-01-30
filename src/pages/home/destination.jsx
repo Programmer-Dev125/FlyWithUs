@@ -22,8 +22,8 @@ export default function Destination(){
             });
         },
         {
-            threshold: 0.1,        // triggers earlier
-            rootMargin: "-40% 0px -40% 0px", // center the trigger zone 
+            threshold: 0.1,        
+            rootMargin: "-40% 0px -40% 0px", 
         }
         );
 

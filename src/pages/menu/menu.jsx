@@ -11,7 +11,6 @@ export default function Menu(){
     const {pathname} = useLocation();
     const timeoutRef = useRef(null);
     const [id, setId] = useState(0);
-    const [openMenu, setOpenMenu] = useState(false);
 
     const contents =  [
         {id: 0, img: "/images/form-1.jpg"},
@@ -40,10 +39,6 @@ export default function Menu(){
         }
       }
     }, [pathname, id]);
-
-    const toggleMenu = () =>{
-      setOpenMenu((prev) => !prev);
-    }
 
     return(
         <section className={`relative ${pathname === "/" && "pb-20"}`}>
@@ -85,7 +80,7 @@ export default function Menu(){
                     <Link to={menu.link} key={index}>
                       <div className="flex flex-col items-center transition-transform duration-200 cursor-pointer hover:scale-120">
                         <menu.icon size={22}  color={`${pathname === menu.link ? "var(--focus)" : "var(--primary)"}`} />
-                        <p className="text-lg" style={{color: pathname === menu.link ? "var(--focus)" : "var(--primary)"}}>{menu.text}</p>
+                        <p className="text-sm" style={{color: pathname === menu.link ? "var(--focus)" : "var(--primary)"}}>{menu.text}</p>
                       </div>
                     </Link>
                   )}

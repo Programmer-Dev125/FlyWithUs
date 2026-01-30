@@ -30,48 +30,16 @@ export default function FlightForm(){
 
     return(
         <div className="flex flex-col gap-5">
-            <h2 className="text-2xl text-white font-semibold">Search for Cheap Flights</h2>
+            <h2 className="text-lg sm:text-2xl text-white font-semibold">Search for Cheap Flights</h2>
             <div className="flex flex-row gap-3">
-                <p className={`text-md px-3 py-2 cursor-pointer rounded-lg ${trip == "round" ? "text-white bg-[var(--focus)]" : "bg-white text-[var(--primary)]" }`} onClick={() => setTrip("round")}>Round Trip</p>
-                <p className={`text-md px-3 py-2 cursor-pointer rounded-lg ${trip == "one way" ? "text-white bg-[var(--focus)]" : "bg-white text-[var(--primary)]" }`} onClick={() => setTrip("one way")}>One Way</p>
+                <p className={`text-sm sm:text-base px-3 py-2 cursor-pointer rounded-lg ${trip == "round" ? "text-white bg-[var(--focus)]" : "bg-white text-[var(--primary)]" }`} onClick={() => setTrip("round")}>Round Trip</p>
+                <p className={`text-sm text-base px-3 py-2 cursor-pointer rounded-lg ${trip == "one way" ? "text-white bg-[var(--focus)]" : "bg-white text-[var(--primary)]" }`} onClick={() => setTrip("one way")}>One Way</p>
             </div>
             <div className="flex flex-col gap-12 mt-10">
-                {/* <div className="grid grid-cols-3 gap-10">
-                    <Input 
-                        label="Name"
-                        labelStyles="text-white text-lg font-semibold"
-                        icon={<FaUser size={25} color="#ffffff80" />}
-                        mainParent={true}
-                        parentCommon={true}
-                        type="text"
-                        placeholder="Enter Your Name"
-                        inputStyles="text-white"
-                    />
-                    <Input 
-                        label="Email"
-                        labelStyles="text-white text-lg font-semibold"
-                        icon={<MdEmail size={25} color="#ffffff80" />}
-                        mainParent={true}
-                        parentCommon={true}
-                        type="text"
-                        placeholder="Enter Your Email"
-                        inputStyles="text-white"
-                    />
-                    <Input 
-                        label="Number"
-                        labelStyles="text-white text-lg font-semibold"
-                        icon={<FaPhoneAlt size={25} color="#ffffff80" />}
-                        mainParent={true}
-                        parentCommon={true}
-                        type="text"
-                        placeholder="Enter Your Phone Number"
-                        inputStyles="text-white"
-                    />
-                </div> */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                     <Input 
                         label="Flying From"
-                        labelStyles="text-white text-lg font-semibold"
+                        labelStyles="text-white text-sm sm:text-lg font-semibold"
                         icon={<IoLocation  size={25} color="#ffffff80" />}
                         parentCommon={true}
                         type="text"
@@ -79,7 +47,7 @@ export default function FlightForm(){
                         inputStyles="text-white"  />
                     <Input 
                         label="Flying To"
-                        labelStyles="text-white text-lg font-semibold"
+                        labelStyles="text-white text-sm sm:text-lg font-semibold"
                         icon={<IoLocation  size={25} color="#ffffff80" />}
                         parentCommon={true}
                         type="text"
@@ -90,7 +58,7 @@ export default function FlightForm(){
                 <div className={`grid ${trip === "round" ? "grid-cols-2 lg:grid-cols-3" : "grid-cols-2"} gap-10`}>
                     <Input 
                         label="Departing On"
-                        labelStyles="text-white text-lg font-semibold"
+                        labelStyles="text-white text-sm sm:text-lg font-semibold"
                         icon={<FaCalendarAlt  size={25} color="#ffffff80" />} 
                         parentCommon={true}
                         type="date" placeholder="Select Departure Date"
@@ -98,7 +66,7 @@ export default function FlightForm(){
                     />
                     {trip == "round" && <Input 
                         label="Returning On"
-                        labelStyles="text-white text-lg font-semibold"
+                        labelStyles="text-white text-sm sm:text-lg font-semibold"
                         icon={<FaCalendarAlt  size={25} color="#ffffff80" />}
                         parentCommon={true}
                         type="date"
@@ -107,7 +75,7 @@ export default function FlightForm(){
                     }
                     <Select 
                         label="Cabin Class"
-                        labelStyles="text-white text-lg font-semibold"
+                        labelStyles="text-white text-sm sm:text-lg font-semibold"
                         icon={<GiCommercialAirplane size={25} color="#ffffff80" />}
                         parentCommon={true}
                         options={["Economy Class", "Economy Premium", "Business Class", "First Class"]}
@@ -119,19 +87,19 @@ export default function FlightForm(){
                     {infos.map((info) => {
                         return info.sel == info.ages[info.ages.length - 1] ? <Select 
                             label={info.label}
-                            labelStyles="text-white text-lg font-semibold"
+                            labelStyles="text-white text-sm sm:text-lg font-semibold"
                             icon={<info.icon size={25} color="#ffffff80" />}
                             parentCommon={true}
                             options={Array.from({length: 9})}
                             optionStyle="text-[var(--primary)]"
                             selectStyle="text-white"
                         /> : <div className="flex flex-col gap-5">
-                                <label className="text-white text-lg font-semibold">{info.label}</label>
+                                <label className="text-white text-sm sm:text-lg font-semibold">{info.label}</label>
                                 <div className="flex gap-5">
                                     {info.ages.map((age, i) => <div  key={i} className={`w-[30px] h-[30px] rounded-full flex justify-center items-center cursor-pointer ${info.sel == age ? "bg-[var(--focus)] text-white" : "bg-white text-[var(--primary)] hover:bg-[var(--focus)] hover:text-white"}`}
                                     onClick={() => onSelect(info.about, age)}
                                 >
-                                    <p className="text-md">{age}</p>
+                                    <p className="text-sm sm:text-base">{age}</p>
                                 </div>)}
                                 </div>
                             </div>

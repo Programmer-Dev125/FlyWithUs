@@ -17,15 +17,13 @@ export default function Form(){
     const tabTitles = [
         {id: 1, icon: PiAirplaneTiltFill, focus: "flight", text: "Flights"},
         {id: 2, icon: LiaHotelSolid, focus: "hotel", text: "Hotel"},
-        // {id: 3, icon: FaCarSide, focus: "car", text: "Car"},
     ]
     const contents =  [
         {id: 0, img: "/images/form-1.jpg"},
         {id: 1, img: "/images/form-2.jpg"},
         {id: 2, img: "/images/form-3.jpg"},
     ]
-    const current = contents[id];
-    
+        
     useEffect(() =>{
         timeoutRef.current = setTimeout(() =>{
             setId((prev) => prev == (contents.length - 1) ? 0 : prev + 1);
@@ -40,18 +38,26 @@ export default function Form(){
                    <div className="w-[90%] xl:w-[60%] form-section">
                         <div className="flex flex-row w-[100%]">
                             {tabTitles.map((title) => 
-                            <div
-                                key={title.id}
-                                className={`flex flex-row gap-3 items-center cursor-pointer px-5  py-3 ${title.id == 1 ? "rounded-tl-lg" : ""}  ${tab == title.focus ? "bg-[var(--focus)]" : "bg-white"}`} onClick={() => dispatch(onTab(title.focus))}>
-                                    <title.icon size={20} color={`${tab == title.focus ? "#ffffff" : "#000000"}`} />
-                                    <p className={`text-md ${tab == title.focus ? "text-white" : "text-[var(--primary)]"}`}>{title.text}</p>
-                            </div>
-                        )}
+                                <div
+                                    key={title.id}
+                                    className={`flex flex-row gap-3 items-center cursor-pointer px-5  py-3 ${title.id == 1 ? "rounded-tl-lg" : ""}  ${tab == title.focus ? "bg-[var(--focus)]" : "bg-white"}`} 
+                                    onClick={() => dispatch(onTab(title.focus))}
+                                    >
+                                        <title.icon 
+                                            size={20} 
+                                            color={`${tab == title.focus ? "#ffffff" : "#000000"}`} 
+                                        />
+                                        <p 
+                                            className={`text-sm sm:text-base ${tab == title.focus ? "text-white" : "text-[var(--primary)]"}`}
+                                        >
+                                            {title.text}
+                                        </p>
+                                </div>
+                            )}
                         </div>
                         <div className={`backdrop-blur-md bg-white/10 z-10 w-[100%] flex flex-col gap-10 px-4 py-10`}>
                             {tab == "flight" && <FlightForm />}
                             {tab == "hotel" && <HotelForm />}
-                            {/* {tab == "car" && <CarForm />} */}
                         </div>
                    </div>
                 </section>
