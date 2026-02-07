@@ -39,7 +39,7 @@ export default function App(){
 
             {/* Client */}
             <Route element={<Layout />}>
-                <Route index element={<Home />} />
+                <Route path="/" element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="policy" element={<Policy />} />  
                 <Route path="flights" element={<Flight />}  />
@@ -48,7 +48,7 @@ export default function App(){
             {/* Admin */}
             <Route path="admin">
                 <Route index element={<Login />} />
-                <Route index element={<Dashboard />}>
+                <Route path="dashboard" element={<Dashboard />}>
                     <Route index element={<DashboardContent />} />
                     <Route path="visitors" element={<AdminVisitors />} />
                     <Route path="bookings" element={<AdminBookings />} />
