@@ -1,15 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/admin",
-      "destination": "/admin/",
-      "statusCode": 308
-    }
+  "routes": [
+    { "src": "/[^.]+", "dest": "/", "status": 200 }
   ]
 }
