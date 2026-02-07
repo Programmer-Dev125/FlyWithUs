@@ -27,7 +27,7 @@ const AdminVisitors = lazy(() => import("@dash/AdminVisitors"));
 export default function App(){  
    
   return(  
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Suspense
         fallback={
             <div className="w-screen h-screen flex justify-center items-center">
