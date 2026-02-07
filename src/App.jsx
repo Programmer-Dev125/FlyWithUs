@@ -1,5 +1,5 @@
-import { Suspense, lazy, useEffect, useRef, useState } from "react";
-import { BrowserRouter, Route, Routes, useLocation, Outlet } from "react-router-dom";
+import { Suspense, lazy, useEffect, useState } from "react";
+import { HashRouter, Route, Routes, useLocation, Outlet } from "react-router-dom";
 import { IoIosArrowUp } from "react-icons/io";
 import Menu from "@pages/menu/menu";
 import Footer from "./footer/footer";
@@ -27,7 +27,7 @@ const AdminVisitors = lazy(() => import("@dash/AdminVisitors"));
 export default function App(){  
    
   return(  
-    <BrowserRouter basename="/">
+    <HashRouter>
       <Suspense
         fallback={
             <div className="w-screen h-screen flex justify-center items-center">
@@ -64,7 +64,7 @@ export default function App(){
             <Route path="*" element={<Error />} />
           </Routes>
       </Suspense>
-    </BrowserRouter> 
+    </HashRouter> 
   )
 }
 
