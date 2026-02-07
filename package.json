@@ -16,6 +16,7 @@
     "@mui/system": "^7.3.7",
     "@mui/x-charts": "^8.27.0",
     "@reduxjs/toolkit": "^2.9.0",
+    "@vercel/react-router": "^1.2.5",
     "lottie-react": "^2.4.1",
     "path": "^0.12.7",
     "react": "^19.1.1",
