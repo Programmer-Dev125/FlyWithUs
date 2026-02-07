@@ -2,7 +2,7 @@ import { Suspense, lazy, useEffect, useState } from "react";
 import { Route, Routes, useLocation, Outlet, BrowserRouter } from "react-router-dom";
 import { IoIosArrowUp } from "react-icons/io";
 import Menu from "@pages/menu/menu";
-import Footer from "./footer/footer";
+import Footer from "./pages/footer/footer";
 import Lottie from "lottie-react";
 import Loader from "./assets/gifs/Loader.json";
 import Error from "@pages/404/Error";
