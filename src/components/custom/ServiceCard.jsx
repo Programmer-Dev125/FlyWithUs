@@ -26,7 +26,14 @@ export default function ServiceCard({children, icon, tab, btnText, styles}){
                 </ol>   
             </div>
             <div>
-                <Button onClick={() => onForm(tab)} otherTab={true}>
+                <Button 
+                    onClick={() => {
+                        if(tab){
+                            onForm(tab)
+                        }
+                    }}
+                    otherTab={true}
+                >
                     {btnText}
                 </Button>
             </div>   

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { TextGenerator } from "@custom";
 import { Card, SideTitle } from "@ui";
 import { FcPortraitMode } from "react-icons/fc";
-import { LineChart } from '@mui/x-charts/LineChart';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { FcDepartment, FcFeedback } from "react-icons/fc";
 

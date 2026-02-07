@@ -4,26 +4,13 @@ import { FaUsers , FaUserSecret, FaHotel } from "react-icons/fa";
 import { MdOutlineFlightTakeoff, MdMenuOpen, MdEmail, MdAnalytics } from "react-icons/md";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { SideBarTab } from "@custom";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, Outlet } from "react-router";
 import { TbSettingsFilled } from "react-icons/tb";
 import { IoHourglassOutline } from "react-icons/io5";
-import Error from "@pages/404/Error.jsx"
-
 import { Title } from "@custom";
-
-const DashboardContent = lazy(() => import("./dashboardContent"));
-const AdminVisitors = lazy(() => import("./admin-visitors/adminVisitors"));
-const AdminBookings = lazy(() => import("./admin-bookings/adminBookings"));
-const AdminHotels = lazy(() => import("./admin-hotels/adminHotels"));
-const AdminMessages = lazy(() => import("./admin-messages/adminMessages"));
-const AdminPendingQueries = lazy(() => import("./admin-pending-queries/adminPendingQueries"));
-const AdminAnalytics = lazy(() => import("./admin-analytics/adminAnalytics"));
-const AdminRevenue = lazy(() => import("./admin-revenue/adminRevenue"));
-const AdminSettings = lazy(() => import("./admin-settings/adminSettings"));
 
 export default function DashBoard(){
     const navigate = useNavigate();
-    const { pathname } = useLocation();
     const [height, setHeight] = useState(window.innerHeight);
     const [ collapse, setCollapse ] = useState(false);
     const collapseRef = useRef(false);
@@ -104,22 +91,11 @@ export default function DashBoard(){
                 <div className="mt-10">
                     <Title sub="Welcome to Travel Website" main="Admin Dashboard" size="text-3xl" />
                 </div>
-                <section className="mt-10">
-                    <Routes>
-                        <Route index element={<DashboardContent />} />
-                        <Route path="visitors" element={<AdminVisitors />} />
-                        <Route path="bookings" element={<AdminBookings />} />
-                        <Route path="hotels" element={<AdminHotels />} />
-                        <Route path="messages" element={<AdminMessages />} />
-                        <Route path="pending-queries" element={<AdminPendingQueries />} />
-                        <Route path="analytics" element={<AdminAnalytics />} />
-                        <Route path="revenue" element={<AdminRevenue />} />
-                        <Route path="settings" element={<AdminSettings />} />
-
-                        {/* Catch invalid dashboard routes */}
-                        <Route path="*" element={<Error />} />
-                    </Routes>
-                    {/* {pathname == "/admin/dashboard" && <DashboardContent />}
+                <section className="py-10">
+                    <Outlet />
+                </section>
+                {/* <section className="mt-10">
+                    {pathname == "/admin/dashboard" && <DashboardContent />}
                     {pathname == "/admin/dashboard/visitors" && <AdminVisitors />}
                     {pathname == "/admin/dashboard/bookings" && <AdminBookings />}  
                     {pathname == "/admin/dashboard/hotels" && <AdminHotels />} 
@@ -127,8 +103,8 @@ export default function DashBoard(){
                     {pathname == "/admin/dashboard/pending-queries" && <AdminPendingQueries />}
                     {pathname == "/admin/dashboard/analytics" && <AdminAnalytics />}
                     {pathname == "/admin/dashboard/revenue" && <AdminRevenue />}
-                    {pathname == "/admin/dashboard/settings" && <AdminSettings />} */}
-                </section>  
+                    {pathname == "/admin/dashboard/settings" && <AdminSettings />}
+                </section>   */}
             </section>
         </section>
     )

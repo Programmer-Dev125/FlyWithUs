@@ -3,10 +3,10 @@ import Error404 from "../../assets/gifs/Error.json";
 import {Link} from "react-router-dom";
 
 export default function Error(){
-    const height = window.outerHeight;
+
     return(
-        <section className="w-[100%] h-screen flex justify-center items-center">
-           <div className="flex flex-col gap-10">
+        <section className="w-full min-h-screen flex justify-center items-center ov-hidden">
+            <div className="flex flex-col gap-8">
                 <Lottie animationData={Error404} loop={true} />
                 <div className="text-center">
                     <Link to="/">
@@ -15,7 +15,7 @@ export default function Error(){
                         >Go Home</button>
                     </Link>
                 </div>
-           </div>
+            </div>
         </section>
     )
 }

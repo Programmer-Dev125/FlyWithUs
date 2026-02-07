@@ -12,43 +12,43 @@ export default function LeftSide(){
 
         const mouseMove = (e) =>{
             const pupils = [
-            firstEye.first.current,
-            firstEye.second.current,
-            secondEye.first.current,
-            secondEye.second.current,
-            thirdEye.first.current,
-            thirdEye.second.current,
-        ];
+                firstEye.first.current,
+                firstEye.second.current,
+                secondEye.first.current,
+                secondEye.second.current,
+                thirdEye.first.current,
+                thirdEye.second.current,
+            ];
 
-        pupils.forEach((pupil) => {
-            if (!pupil) return;
+            pupils.forEach((pupil) => {
+                if (!pupil) return;
 
-                const eyeContainer = pupil.parentElement;
-                if (!eyeContainer) return;
+                    const eyeContainer = pupil.parentElement;
+                    if (!eyeContainer) return;
 
-                const eyeRect = eyeContainer.getBoundingClientRect();
-                const pupilRect = pupil.getBoundingClientRect();
+                    const eyeRect = eyeContainer.getBoundingClientRect();
+                    const pupilRect = pupil.getBoundingClientRect();
 
-                const cx = eyeRect.left + eyeRect.width / 2;
-                const cy = eyeRect.top + eyeRect.height / 2;
+                    const cx = eyeRect.left + eyeRect.width / 2;
+                    const cy = eyeRect.top + eyeRect.height / 2;
 
-                const dx = e.clientX - cx;
-                const dy = e.clientY - cy;
+                    const dx = e.clientX - cx;
+                    const dy = e.clientY - cy;
 
-                const angle = Math.atan2(dy, dx);
+                    const angle = Math.atan2(dy, dx);
 
-                const eyeRadius = Math.min(eyeRect.width, eyeRect.height) / 2;
-                const pupilRadius = Math.min(pupilRect.width, pupilRect.height) / 2;
-                const maxDistance = Math.max(0, eyeRadius - pupilRadius);
+                    const eyeRadius = Math.min(eyeRect.width, eyeRect.height) / 2;
+                    const pupilRadius = Math.min(pupilRect.width, pupilRect.height) / 2;
+                    const maxDistance = Math.max(0, eyeRadius - pupilRadius);
 
-                // move only 60% distance
-                const distance = 0.6 * maxDistance;
+                    const distance = 0.6 * maxDistance;
 
-                const x = Math.cos(angle) * distance; // cos - How wide the angle 
-                const y = Math.sin(angle) * distance; // sin - How tall the angle
+                    const x = Math.cos(angle) * distance; 
+                    const y = Math.sin(angle) * distance;
 
-                pupil.style.transform = `translate(${x}px, ${y}px)`;
-            });
+                    pupil.style.transform = `translate(${x}px, ${y}px)`;
+                }
+            );
         };
 
         window.addEventListener("mousemove", mouseMove);

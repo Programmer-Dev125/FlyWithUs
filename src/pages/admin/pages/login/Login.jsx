@@ -5,10 +5,12 @@ import { MdEmail } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login(){
 
+    const navigate = useNavigate();
     const [height, setHeight] = useState(window.innerHeight);
     const [inputType, setInputType] = useState(true);
     const [submitted, setSubmitted ] = useState(false);
@@ -33,7 +35,8 @@ export default function Login(){
 
     function onSubmit(e){
         e.preventDefault();
-        setSubmitted(prev => !prev);
+        navigate("dashboard");
+        // setSubmitted(prev => !prev);
     }
 
     return(

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router";
 
 export default function SidebarTab({ collapse, icon, text, link}){

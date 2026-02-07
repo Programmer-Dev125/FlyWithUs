@@ -48,7 +48,6 @@ export default function Menu(){
             style={{zIndex: -1}}
           />}
           <section className="z-10 relative flex flex-col gap-20">
-            {/* Upper Menu */}
             <div id="menuRef" className="w-[90%] mx-auto hidden md:flex flex-row justify-between items-center">
               <Link to="/"> 
                 <img 
@@ -68,22 +67,24 @@ export default function Menu(){
                   )}
               </div>              
             </div>
-            {/* Mobile Menu */}
-              <div className="animated-content md:hidden w-[100%] py-3 fixed bottom-0 bg-white/50 backdrop-blur-md shadow-2xl" style={{zIndex: 100}} id="mobile-menu">
+            <div className="animated-content md:hidden w-[100%] py-3 fixed bottom-0 bg-white/50 backdrop-blur-md shadow-2xl" style={{zIndex: 100}} id="mobile-menu">
                 <div className="w-[90%] mx-auto flex flex-row justify-between items-center justify-between ">
-                  <div className="w-[70px] h-[70px] absolute top-[-33px] left-1/2 transform -translate-x-1/2 bg-[var(--focus)] flex justify-center items-center rounded-full shadow-2xl" style={{zIndex: 101}}>
-                    <Link to="/">
-                      <img  src="/images/menu-logo.png" alt="logo" className="w-[50px] h-[50px]" />
-                    </Link>
-                  </div>
-                  {menuPaths.map((menu, index) => 
-                    <Link to={menu.link} key={index}>
-                      <div className="flex flex-col items-center transition-transform duration-200 cursor-pointer hover:scale-120">
-                        <menu.icon size={22}  color={`${pathname === menu.link ? "var(--focus)" : "var(--primary)"}`} />
-                        <p className="text-sm" style={{color: pathname === menu.link ? "var(--focus)" : "var(--primary)"}}>{menu.text}</p>
-                      </div>
-                    </Link>
-                  )}
+                    <div 
+                      className="w-[70px] h-[70px] absolute top-[-33px] left-1/2 transform -translate-x-1/2 bg-[var(--focus)] flex justify-center items-center rounded-full shadow-2xl" 
+                      style={{zIndex: 90}}
+                    >
+                        <Link to="/">
+                            <img  src="/images/menu-logo.png" alt="logo" className="w-[50px] h-[50px]" />
+                        </Link>
+                    </div>
+                    {menuPaths.map((menu, index) => 
+                        <Link to={menu.link} key={index}>
+                            <div className="flex flex-col items-center transition-transform duration-200 cursor-pointer hover:scale-120">
+                                <menu.icon size={15}  color={`${pathname === menu.link ? "var(--focus)" : "var(--primary)"}`} />
+                                <p className="text-[10px] sm:text-sm" style={{color: pathname === menu.link ? "var(--focus)" : "var(--primary)"}}>{menu.text}</p>
+                            </div>
+                        </Link>
+                    )}
                 </div>
             </div>
             {pathname === "/" &&  <div className="pt-20 md:pt-0">

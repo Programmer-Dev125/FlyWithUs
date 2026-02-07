@@ -67,11 +67,14 @@ export default function DashboardContent(){
                         />
                     </div>
                     <LineChart
-                        series={[
-                        { data: [2, 5, 3, 7, 4] },
-                        ]}
+                        xAxis={[{ data: [1, 2, 3, 4, 5] }]}
+                        series={[{ data: [2, 5, 3, 7, 4] }]}
                         height={300}
+                        slotProps={{
+                            axisHighlight: { x: 'none', y: 'none' },
+                        }}
                     />
+
                 </Card>
                 <Card styles="flex flex-col gap-5">
                     <h2 className="text-lg font-semibold text-[var(--primary)]">Popular Destinations</h2>
