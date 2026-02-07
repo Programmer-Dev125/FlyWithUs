@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from "path";
 
 export default defineConfig({
-  base: "./",
+  base: "/",
   plugins: [react()],
   resolve:{
     alias:{
@@ -14,5 +14,8 @@ export default defineConfig({
       "@admin": path.resolve(__dirname, "src/pages/admin/pages"),
       "@dash": path.resolve(__dirname, "src/pages/admin/pages/dashboard")
     }
+  },
+  build: {
+    outDir: 'dist'
   }
 })
